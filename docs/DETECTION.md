@@ -1,6 +1,6 @@
 # Compilation of BShield Security Checks & Detection Mechanisms on Android
 
-This document lists all known BShield security checks and detection mechanisms on Android devices, along with possible bypass methods as of July 15th, 2026. If you discover additional detection mechanisms, feel free to report them in the Issues tab.
+This document lists all known BShield security checks and detection mechanisms on Android devices, along with possible bypass methods as of October 20th, 2026. If you discover additional detection mechanisms, feel free to report them in the Issues tab.
 
 > [!CAUTION]
 > **This project is for educational purposes only. The goal is to highlight weaknesses in current security solutions and encourage the development of better, more reliable alternatives. Use this information responsibly. DO NOT use it for malicious purposes. I am not responsible for any actions taken by users of this module or project.**
@@ -95,6 +95,13 @@ Use the following KSU/Magisk and LSPosed modules (preferably FOSS):
 to hide these applications.
 
 Or, if you do not use root, simply avoid installing root managers on the device.
+
+Switch to osm0sis's PIF Fork if you still encounter Error Code 3: https://github.com/osm0sis/PlayIntegrityFork[cite: 2]
+
+For users using Meta Modules, use magicmount or hybrid mount to avoid Error Code 3 as well as Error Code 5 (Only use these 2 meta modules)[cite: 2]:
+
+- Magicmount module: https://github.com/KernelSU-Modules-Repo/meta-mm/releases[cite: 2]
+- Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases[cite: 2]
 
 ## Error Code 4 (Debug Tool Detection, Rare)
 
@@ -235,6 +242,11 @@ For example, it may report "Suspicious Mount".
 - KSU 3.0 and some newer versions of APatch and Magisk handle this issue better.
 - On some devices, ReZygisk cannot unmount certain paths. If you encounter this issue, report it to me.
 
+**KSU 3:**[cite: 2]
+- For KSU 3 or higher, you must use Meta module magicmount module or hybrid mount to avoid exposed mounts[cite: 2]
+- Magicmount module: https://github.com/KernelSU-Modules-Repo/meta-mm/releases[cite: 2]
+- Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases[cite: 2]
+
 ### [UNCONFIRMED] KSU/AP Module Proc Image Loop Detection
 
 According to a recent report from [@Hzzmonet](https://t.me/Hzzmonet), BShield may detect KSU/AP proc image loops. The reason is that older KSU/AP versions used OverlayFS mount mechanisms, leading to detection.
@@ -315,8 +327,6 @@ Or preferably, simply disable Developer Mode when not needed.
 **Reference link:** <https://s.bshield.io/?code=12>
 
 This error occurs when using a custom ROM on the device.
-
-Currently, FPT Shop, NCB iziMobile, and MyVIB app additionally checks this (<https://play.google.com/store/apps/details?id=vn.frt.fptshop.app&hl=vi>)
 
 **Fix:**
 Install [JingMatrix/TEESimulator](https://github.com/JingMatrix/TEESimulator), then add the package name to `target.txt`.

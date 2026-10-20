@@ -1,6 +1,6 @@
 # Tổng hợp những kiểm tra, phát hiện lỗ hổng bảo mật của BShield trên Android
 
-Tài liệu này liệt kê tất cả các cơ chế kiểm tra, phát hiện lỗ hổng bảo mật của Bshield trên thiết bị Android và cách để bypass các cơ chế trên tính đến ngày 15 tháng 7 năm 2026. Nếu bạn phát hiện thêm các cơ chế phát hiện khác, hãy thoải mái báo cáo trong tab Issues.
+Tài liệu này liệt kê tất cả các cơ chế kiểm tra, phát hiện lỗ hổng bảo mật của Bshield trên thiết bị Android và cách để bypass các cơ chế trên tính đến ngày 20 tháng 10 năm 2026. Nếu bạn phát hiện thêm các cơ chế phát hiện khác, hãy thoải mái báo cáo trong tab Issues.
 
 > [!CAUTION]
 > **Dự án này chỉ phục vụ mục đích giáo dục. Mục tiêu là làm nổi bật những điểm yếu của các giải pháp bảo mật hiện tại và khuyến khích phát triển những giải pháp thay thế tốt hơn, đáng tin cậy hơn. Hãy sử dụng thông tin này một cách có trách nhiệm. KHÔNG sử dụng cho mục đích độc hại. Tôi không chịu trách nhiệm cho bất kỳ hành động nào được thực hiện bởi người dùng của module hoặc dự án này.**
@@ -96,9 +96,9 @@ Bạn hãy sử dụng module KSU/Magisk và module LSposed dưới đây (ưu t
 
 Hoặc nếu bạn không dùng root, đơn giản là đừng cài đặt trình quản lý root trên thiết bị.
 
-Chuyển sang dùng PIF Fork của osm0sis nếu bạn vẫn thấy lỗ 3 xuất hiện: https://github.com/osm0sis/PlayIntegrityFork
+Chuyển sang dùng PIF Fork của osm0sis nếu bạn vẫn thấy lỗi 3 xuất hiện: https://github.com/osm0sis/PlayIntegrityFork
 
-Đối với các bạn dùng Meta Module thì hãy dùng magicmount hoặc hybrid mount để tránh lỗi 3 cũng như lỗi 5 (Chỉ dùng 2 meta module này)
+Đối với các bạn dùng Meta Module thì hãy dùng magicmount hoặc hybrid mount để tránh lỗi 3 cũng như lỗi 5 (Chỉ dùng 2 meta module này):
 
 - Magicmount module: https://github.com/KernelSU-Modules-Repo/meta-mm/releases
 - Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases
@@ -243,7 +243,7 @@ Ví dụ, nó có thể báo "Suspicious Mount".
 - Trên một số thiết bị, ReZygisk không thể unmount một số path. Nếu bạn gặp lỗi này, hãy báo cho tôi.
 
 **KSU 3:**
-- Đối với KSU 3 trở lên thì phải dùng Meta module magicmount module hoặc hybrid mount để tránh bị lộ mount 
+- Đối với KSU 3 trở lên thì phải dùng Meta module magicmount module hoặc hybrid mount để tránh bị lộ mount
 - Magicmount module: https://github.com/KernelSU-Modules-Repo/meta-mm/releases
 - Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases
 
@@ -328,13 +328,10 @@ Hoặc cách tốt nhất: không bật Developer Mode khi không sử dụng.
 
 Lỗi này xảy ra khi bạn dùng ROM custom trên thiết bị.
 
-Hiện tại có app FPT Shop, NCB iziMobile, MyVIB là check thêm cái này (<https://play.google.com/store/apps/details?id=vn.frt.fptshop.app&hl=vi>)
-
 **Cách khắc phục:**
 Cài đặt [JingMatrix/TEESimulator](https://github.com/JingMatrix/TEESimulator), thêm tên gói vào `target.txt`:
 
-Dựa vào [nghiên cứu của team FPT Night-Wolf](https://blogs.night-wolf.io/ai-assisted-on-rasp-analysis), ta biết được rằng mã 12 còn kiểm tra thêm 
-`ro.build.display.id` và `ro.build.keys` xem có chứa `test-keys` không. Bạn có thể dùng module của chúng tôi như một cách tạm thời sửa lỗi này.
+Dựa vào [nghiên cứu của team FPT Night-Wolf](https://blogs.night-wolf.io/ai-assisted-on-rasp-analysis), ta biết được rằng mã 12 còn kiểm tra thêm `ro.build.display.id` và `ro.build.keys` xem có chứa `test-keys` không. Bạn có thể dùng module của chúng tôi như một cách tạm thời sửa lỗi này.
 
 ## Mã lỗi 13 (Phát hiện thiết bị đang chạy dịch vụ trợ năng đang chạy)
 
@@ -390,8 +387,7 @@ Hiên tại không có cách nào ẩn được tính năng này.
 Lỗi này xảy ra khi bạn dùng nhập liệu mô phỏng cho ứng dụng
 
 **Cách khắc phục:**
-Chúng tôi khuyên bạn không nên sử dụng các phần mềm autoclick hay bất kì ứng dụng, phần mềm này mô
-phong lại nhập liệu (ví dụ như keyboard) trong ứng dụng này.
+Chúng tôi khuyên bạn không nên sử dụng các phần mềm autoclick hay bất kì ứng dụng, phần mềm này mô phong lại nhập liệu (ví dụ như keyboard) trong ứng dụng này.
 
 ## Mã lỗi 19 (Đang dùng chế độ proxy trên thiết bị)
 
@@ -407,8 +403,7 @@ Chúng tôi khuyên bạn tạm tắt proxy hoặc tốt nhất là không dùng
 **Link tham khảo:** <https://s.bshield.io/?code=20>
 
 Đây là mã lỗi khác đặc biệt khi sử dụng các trình ảo hóa iphone trên hệ thống MacOS.
-Hiện tại lỗi này cũng hiếm khi xuất hiện, nhưng nếu có, điều đó cho thấy rằng bạn không nên sử dụng
-ứng dụng này trong các môi trường ảo hóa iphone.
+Hiện tại lỗi này cũng hiếm khi xuất hiện, nhưng nếu có, điều đó cho thấy rằng bạn không nên sử dụng ứng dụng này trong các môi trường ảo hóa iphone.
 
 ## Mã lỗi 21 (Phát hiện có vẻ đã bị bẻ khóa (root))
 
