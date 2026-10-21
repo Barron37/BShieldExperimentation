@@ -249,8 +249,9 @@ For example, it may report "Suspicious Mount".
 
 **KSU 3:**
 - For KSU 3 or higher, you must use Meta module magicmount module or hybrid mount to avoid exposed mounts
-- Magicmount module: https://github.com/KernelSU-Modules-Repo/meta-mm/releases
-- Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases
+- Magicmount module: https://github.com/backslashxx/meta-magic_mount (best compatibility)
+- Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases (if you want to use overlayfs)
+- Nomount: https://github.com/maxsteeel/nomount (If your device is GKI2 or NON-GKI with nomount built-in)
 
 ### [UNCONFIRMED] KSU/AP Module Proc Image Loop Detection
 
@@ -350,7 +351,7 @@ stat /system/addon.d
 ### Workaround
 - Install [JingMatrix/TEESimulator](https://github.com/JingMatrix/TEESimulator), then add the package name to `target.txt`.
 - Install latest `simple_bshield_bypass_module`
-- Install [HMA-OSS](https://github.com/frknkrc44/HMA-OSS) and choose BShield powered app, enable whitelist mode.
+- Install [HMA-OSS](https://github.com/frknkrc44/HMA-OSS) and choose BShield powered app, enable hide, go to template config, enable blacklist mode, open using x presets, choose custom rom apps.
 - For first mechanism, we currently have 2 workaround to tackle this:
   - Method 1: With device have susfs support, you can install [BRENE](https://github.com/rrr333nnn333/BRENE/releases/latest) enable **Hide Custom ROM Paths** and **Hide /system/addon.d Path**. Note: If you still want to use `susfs4ksu-module` you might need to get the list from termux by the command in the [Mechanism](#mechanism) section above and add to SUS PATH LOOP
   - Method 2: You can install `NoMount Bypass for BShield` module with [NoMount](https://github.com/maxsteeel/nomount/releases/latest) module installed and working

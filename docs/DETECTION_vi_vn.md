@@ -249,8 +249,9 @@ Ví dụ, nó có thể báo "Suspicious Mount".
 
 **KSU 3:**
 - Đối với KSU 3 trở lên thì phải dùng Meta module magicmount module hoặc hybrid mount để tránh bị lộ mount
-- Magicmount module: https://github.com/KernelSU-Modules-Repo/meta-mm/releases
-- Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases
+- Magicmount module: https://github.com/backslashxx/meta-magic_mount (tương thích tốt nhất)
+- Hybrid mount: https://github.com/Hybrid-Mount/meta-hybrid_mount/releases (nếu muốn dùng overlayfs)
+- Nomount: https://github.com/maxsteeel/nomount (nếu máy bạn là GKI2 hoặc non-gki đã ghim vào kernel thì ưu tiên dùng nm)
 
 ### [CHƯA XÁC NHẬN] Phát hiện vòng lặp image proc của module KSU/AP
 
@@ -349,7 +350,7 @@ stat /system/addon.d
 ### Cách khắc phục tạm thời (Workaround)
 - Cài đặt [JingMatrix/TEESimulator](https://github.com/JingMatrix/TEESimulator), sau đó thêm tên package vào file `target.txt`.
 - Cài đặt bản mới nhất của `simple_bshield_bypass_module`
-- Cài đặt [HMA-OSS](https://github.com/frknkrc44/HMA-OSS) và chọn app có bshield, mở chế độ danh sách trắng.
+- Cài đặt [HMA-OSS](https://github.com/frknkrc44/HMA-OSS) và chọn app có BShield, bật ẩn, vào mục tùy chỉnh, chế độ hoạt động danh sách đen, mở đang sử dụng thiết lập trước - chọn thêm ứng dụng ROM Tùy chỉnh.
 - Đối với cơ chế đầu tiên, hiện tại chúng ta có 2 cách khắc phục:
   - Phương pháp 1: Đối với thiết bị có hỗ trợ susfs, bạn có thể cài đặt BRENE và bật Hide Custom ROM Paths cùng Hide /system/addon.d Path. Lưu ý: Nếu bạn vẫn muốn sử dụng susfs4ksu-module, bạn có thể cần lấy danh sách từ termux bằng lệnh trong mục Cơ chế (Mechanism) ở trên và thêm vào SUS PATH LOOP.
   - Phương pháp 2: Bạn có thể cài đặt module NoMount Bypass for BShield cùng với việc cài đặt và khởi chạy thành công module NoMount.
