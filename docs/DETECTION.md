@@ -345,7 +345,7 @@ stat /system/addon.d
 ```
 - Step 2, it check for `ro.build.display.id` and `ro.build.keys` to see if any test keys ([FPT Night-Wolf team's suggestion](https://blogs.night-wolf.io/ai-assisted-on-rasp-analysis)).
 - Step 3, we think it might check for bootloader state in your device
-- Step 4, BShiled check ì any lineage app in the app lít
+- Step 4, BShiled check if any lineage app in the app list
 
 
 ### Workaround
